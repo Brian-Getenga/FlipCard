@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F4F2EC;
+}
+.flip-card{
+    width: 300px;
+    height: 350px;
+    background-color: transparent;
+    perspective: 1000px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
+}
+.flip-card::before{
+    content: " ";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50px;
+    background-color: #6D9773;
+}
+
+.flip-card::after{
+    content: " ";
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50px;
+    background-color: #6D9773;
+    z-index: -1;
+}
+
+.flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform .6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.flip-card:hover .flip-card-inner{
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+s
+.flip-card-front h1{
+    text-align: center;
+    font-family: "Trirong", serif;
+    font-weight: 500;
+    color: #5b5f97;
+    font-size: 24px;
+    font-style: italic;
+}
+.flip-card-back{
+    transform: rotateY(180deg);
+    background-color: #fffffb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-family: "Sofia", sans-serif;
+}
+.flip-card-back h1{
+    color: #5b5f97;
+    font-size: 25px;
+    font-weight: 900;
+}
+.flip-card-back p{
+    text-align: center;
+    font-weight: lighter;
+    font-size: 15px;
+    padding: 5px;
+}
+.flip-card-back span{
+    text-align: center;
+}
+.main-list{
+    list-style:circle;
+    font-size: 15px;
+}
+.main-list li{
+    padding-bottom: 5px;
+}
+.nested-list{
+    list-style:inside;
+}
